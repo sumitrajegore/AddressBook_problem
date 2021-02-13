@@ -1,6 +1,8 @@
 package Addresbook;
+import java.io.*;
+import java.util.Scanner;
 
-  class Contact {
+class Contact {
 
         private String firstname;
     	private String lastname;
@@ -11,8 +13,7 @@ package Addresbook;
     	private long phonenumber;
     	private long zip;
 
-    public Contact(String firstname, String lastname, String address,
-     String city, String state, String gmail, long phonenumber, long zip) {
+    public Contact(String firstname, String lastname, String address, String city, String state, String gmail, long phonenumber, long zip) {
 
 	this.firstname = firstname;
         this.lastname = lastname;
@@ -70,13 +71,34 @@ package Addresbook;
 }
 public class AddressBook {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
     	System.out.println("Welcome to the AddressBook program");
     	System.out.println("\nwe are Adding a contact to our address book.\n");
-    	Contact cont = new Contact( "Sumit", "Rajegore", "Pimpari", "Pune", 
-	      "sumitrajegore@gmail.com", "Maharashtra", 9822654119L, 431605);
+    	Contact cont = new Contact( "Sumit", "Rajegore", "Pimpari", "Pune", "sumitrajegore@gmail.com", "Maharashtra", 9822654119L, 431605);
 	cont.printcontact();
 	System.out.println("\n one contact is successfully created");
-        }
+        System.out.println("\nwe are Adding one more contact to our address book.\n");
+    	Scanner stdin = new Scanner(System.in);
+    	               	System.out.print("Enter First name: ");
+		    	String firstname = stdin.next();
+        		System.out.print("Enter Last name: ");
+	    		String lastname = stdin.next();
+	    		stdin.nextLine();
+		    	System.out.print("Enter Address: ");
+		    	String address = stdin.nextLine();
+		    	System.out.print("Enter City name: ");
+		    	String city = stdin.next();
+		    	System.out.print("Enter gmail id : ");
+		    	String gmail = stdin.next();
+		    	System.out.print("Enter State name: ");
+		    	String state = stdin.next();
+		    	System.out.print("Enter Phone number: ");
+		    	long phonenumber = stdin.nextLong();
+			System.out.print("Enter Zip Code: ");
+	    		long zip = stdin.nextLong();
+Contact cont1 = new Contact(firstname, lastname, address, city, state, gmail, phonenumber, zip);
+	    		cont1.printcontact();
+                        System.out.println("\nhere we Added one more contact to our address book.\n");
+                        }
 }
