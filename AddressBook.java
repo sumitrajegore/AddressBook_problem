@@ -204,6 +204,6 @@ public class AddressBook {
 		System.out.println("3.Delete a contact from your address book.");
 		System.out.println("4.Quit.");
 		System.out.println("    ");
-		System.out.println("Enter your menu choice: ");
+		System.out.println(" Enter your menu choice: ");
     }
 }
