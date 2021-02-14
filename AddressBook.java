@@ -14,62 +14,64 @@ import java.util.Scanner;
 
     
     public Contact(String firstname, String lastname, String address, String city, String state, long phonenumber, long zip) {
-
-		this.firstname = firstname;
-                this.lastname = lastname;
-                this.address = address;
-                this.city = city;
-                this.state = state;
-                this.phonenumber = phonenumber;
-                this.zip = zip;
-                }
+		
+    	this.firstname=firstname;
+        this.lastname=lastname;
+        this.address=address;
+        this.city=city;
+        this.state=state;
+        this.phonenumber=phonenumber;
+        this.zip=zip;
+    }
 
     
     public String getfirstName() {
-	return firstname;
-        }
+		return firstname;
+    }
 
      
     public String getlastName() {
         return lastname;
-        }
+    }
 
      
     public String getAddress() {
         return address;
-        }
+    }
 
      
     public String getCity() {
         return city;
-        }
+    }
 
     
     public String getState() {
         return state;
-        }
+    }
 
     
     public long getNumber() {
 		return phonenumber;
-        }
+    }
 
     
     public long zip() {
         return zip;
-        }
+    }
 
     
     public void printcontact() {
-
-		System.out.println("Name: " +firstname+" "+lastname);
+		
+    	        System.out.println("Name: " +firstname+" "+lastname);
 		System.out.println("Phone: " +phonenumber);
 		System.out.println("Address: "+address);
 		System.out.println("City: "+city);
 		System.out.println("State: "+state);
 		System.out.println("Pin code: "+zip);
 		System.out.println("  ");
+		
     }
+
 }
 public class AddressBook {
 
@@ -92,7 +94,7 @@ public class AddressBook {
 
     // Print out info on all contacts using method Contact class.
     public void printcontacts() {
-		for (int i=0;i<num_of_persons;i++)
+		for (int i=0; i < num_of_persons; i++)
 	    	persons[i].printcontact();
 		    System.out.println("    ");
 		    System.out.println("    ");
@@ -106,7 +108,7 @@ public class AddressBook {
     // Returns index where contact is present otherwise Returns -1
     private int havecontact(String fn, String ln) {
 
-		for (int i=0;i<num_of_persons;i++)
+		for (int i=0; i < num_of_persons; i++)
 	    	if (persons[i].getfirstName().equals(fn) && persons[i].getlastName().equals(ln))
 				return i;
 		return -1;
@@ -115,14 +117,14 @@ public class AddressBook {
     // Deletes a contact with name s, if one is in the AddressBook.
     public void deletecontact(String fn, String ln) {
 
-		int place = havecontact(fn,ln);
+		int place = havecontact(fn, ln);
 		if (place >= 0) {
 	    	persons[place] = persons[num_of_persons-1];
 	    	num_of_persons--;
 	    	System.out.println("Contact succesfully deleted.");
 		}
 		else
-		System.out.println("Contact Not Present.");
+			System.out.println("Contact Not Present.");
     }
 
     public static void main(String[] args) throws IOException {
@@ -139,7 +141,7 @@ public class AddressBook {
 		int choice = stdin.nextInt();
 
 
-		while (choice!=4) {
+		while (choice!=5) {
 
 	    	// Only adds contact if there is room in AddressBook cont.
 	    	if (choice == 1) {
@@ -172,7 +174,7 @@ public class AddressBook {
 	    	}
 
 	    	// Implements rest of the choices by calling appropriate AddressBook methods on cont.
-	    	else if (choice == 3) {
+	    	else if (choice == 2) {
 				System.out.println("What is the first name of the contact you want to delete?");
 				String fname = stdin.next();
 				System.out.println("What is the last name of the contact you want to delete?");
@@ -181,10 +183,13 @@ public class AddressBook {
 				System.out.println("  ");
 				System.out.println("Contact is successfully deleted");
 	    	}
-	    	else if (choice == 2) {
+	    	else if (choice == 3) {
+				System.out.println("You have " + cont.numcontacts() + " contacts in your AddressBook.");
+	    	}
+	    	else if (choice == 4) {
 				cont.printcontacts();
 	    	}
-	    	else if (choice !=4) {
+	    	else if (choice !=5) {
 				System.out.println("Sorry, that was an invalid menu choice, try again.");
 	    	}
 
@@ -195,15 +200,16 @@ public class AddressBook {
     }
 
     public static void menu() {
-
-         	System.out.println("    ");
-        	System.out.println("Select one option from below=");
-    	        System.out.println("    ");
-    	        System.out.println("1.Add a new contact to your address book.");
-		System.out.println("2.Print out information of all of your contacts.");
-		System.out.println("3.Delete a contact from your address book.");
-		System.out.println("4.Quit.");
+    	        
+                System.out.println("    ");
+    	        System.out.println("Select one option from below=");
+        	System.out.println("    ");
+        	System.out.println("1.Add a new contact to your address book.");
+		System.out.println("2.Delete a contact from your address book.");
+		System.out.println("3.Print out the number of contacts you have.");
+		System.out.println("4.Print out information of all of your contacts.");
+		System.out.println("5.Quit.");
 		System.out.println("    ");
-		System.out.println(" Enter your menu choice: ");
+		System.out.println("Enter your menu choice: ");
     }
 }
