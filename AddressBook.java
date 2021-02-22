@@ -1,8 +1,8 @@
+package Addresbook;
 import java.util.Scanner;
-public class AddressBook {
+public class AddressBookMain {
 
 	public String[] Person() {
-
 		Scanner input = new Scanner(System.in);
 		String[] contact = new String[8];
 		System.out.println("Enter your First Name");
@@ -33,22 +33,22 @@ public class AddressBook {
 		
 	}
  
-	public void edit(String[] contact) { 
-                
-                 for (int j = 0; j < contact.length; j++) {
-
-                            System.out.println(contact[j]);
-   		 }
-
-		System.out.println("If you want to edit then press 1");
+	public void edit(String[] contact) {
+		
+		for (int j = 0; j < contact.length; j++) {
+			
+			System.out.println(contact[j]);
+		}
+		
+		System.out.println("If you want to edit contact then press 1");
 		Scanner sc = new Scanner(System.in);
 		int read = sc.nextInt();
 		if (read == 1) {
-
+			
 				System.out.println("Enter your new First Name");
 				String newFirstName = sc.next();
 				contact[0] = newFirstName;
-
+				
 				System.out.println("Enter your new Last Name");
 				String newLastName = sc.next();
 				contact[1] = newLastName;
@@ -56,46 +56,42 @@ public class AddressBook {
 				System.out.println("Enter your new House Number");
 				String newHouseNumber = sc.next();
 				contact[2] = newHouseNumber;
-
+				
 				System.out.println("Enter your new City");
 				String newCity = sc.next();
 				contact[3] = newCity;
-
+				
 				System.out.println("Enter your new State");
 				String newState = sc.next();
 				contact[4] = newState;
-
+				
 				System.out.println("Enter your new Pin Code");
 				String newPinCode = sc.next();
 				contact[5] = newPinCode;
-
+				
 				System.out.println("Enter your new Phone number");
 				String newPhoneNumber = sc.next();
 				contact[6] = newPhoneNumber;
-
+				
 				System.out.println("Enter your new email");
 				String newEmail = sc.next();
 				contact[7] = newEmail;
-
-
-                               System.out.println("Your new details are as follows");
-                               for (int j = 0; j < contact.length; j++) {
-
-                                System.out.println(contact[j]);
-                               }
-
-			} 
-                        else 
-			{
+				
+				System.out.println("Your new details are as follows");
+		      	for (int j = 0; j < contact.length; j++) {
+		      		
+				     System.out.println(contact[j]);
+			    }		
+		}
+		else 
+		 {
 				System.out.println("Invalid Input");
-			}
-
-	}
-	
-	public static void main(String[] args) { 
-
+		}	 
+	}	
+	public static void main(String[] args) {
+		
 		System.out.println("WELCOME to Address Book Program");
-		AddressBook contact = new AddressBook();
+		AddressBookMain contact = new AddressBookMain();
 		String[] info = contact.Person();
 		contact.edit(info);
 	}
